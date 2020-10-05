@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# vue3-ui-design
-=======
 # vue3-ui-design
 
 ## Project setup
@@ -25,4 +22,3 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
->>>>>>> 99e5243... init
