@@ -1,5 +1,2 @@
-const notifier = require('node-notifier');
-notifier.notify({
-	title: 'My notification',
-	message: 'Hello, there'
-});
+const path = require('path')
+console.log(path.resolve(__dirname,'src'));
