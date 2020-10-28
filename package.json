@@ -7,7 +7,7 @@
 	"license": "MIT",
 	"repository": "git@github.com:HomyeeKing/vue3-ui-design.git",
 	"scripts": {
-		"dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config build/webpack.config.doc.js",
+		"dev": "cross-env NODE_ENV=development webpack --inline --progress --config build/webpack.config.dev.js",
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
 		"lint": "vue-cli-service lint"
@@ -42,13 +42,21 @@
 		"friendly-errors-webpack-plugin": "^1.7.0",
 		"html-webpack-plugin": "^4.5.0",
 		"lint-staged": "^9.5.0",
+		"markdown-it": "^8.4.1",
+		"markdown-it-anchor": "^5.0.2",
+		"markdown-it-container": "^2.0.0",
+		"markdown-it-emoji": "^1.4.0",
+		"markdown-it-table-of-contents": "^0.3.6",
 		"mini-css-extract-plugin": "^1.0.0",
 		"node-sass": "^4.14.1",
 		"prettier": "^1.19.1",
 		"sass-loader": "^10.0.3",
 		"typescript": "^4.0.3",
 		"vue-loader": "^15.9.3",
-		"webpack": "^5.1.3",
+		"webpack": "^5.2.0",
+		"webpack-bundle-analyzer": "^3.4.1",
+		"webpack-cli": "^4.1.0",
+		"webpack-dev-server": "^3.2.1",
 		"webpack-merge": "^5.2.0"
 	},
 	"eslintConfig": {

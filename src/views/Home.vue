@@ -13,14 +13,7 @@
 </template>
 
 <script lang="ts">
-import {
-	defineComponent,
-	isReadonly,
-	reactive,
-	ref,
-	shallowReactive,
-	shallowReadonly
-} from 'vue';
+import { defineComponent } from 'vue';
 import Backtop from '../../packages/backtop/src/index.vue';
 
 export default defineComponent({

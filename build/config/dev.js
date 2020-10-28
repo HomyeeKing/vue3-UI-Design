@@ -1,4 +1,5 @@
 module.exports = {
+	mode: 'development',
 	assetsPublicPath: '/',
 	// 普通对象 不是webpack devServer
 	devServer: {

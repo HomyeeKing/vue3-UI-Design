@@ -17,7 +17,10 @@ const config = merge(
 			'warriors-ui': resolve('index.js')
 		},
 		output: {
-			assetPath: resolve('doc/dist')
+			assetPath: resolve('doc/dist'),
+			library: 'warriors-ui',
+			libraryTarget: 'umd',
+			filename: 'warriors-ui.common.js'
 		},
 		alias: {
 			main: resolve('src'),

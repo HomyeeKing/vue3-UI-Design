@@ -29,7 +29,7 @@ const docWebpackConfig = merge(baseWebpackConfig, {
 	devtool: config.devtool,
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: 'docs/index.html',
+			template: 'docs/index.html', //到模板的相对路径
 			filename: 'index.html',
 			inject: true
 		}),
