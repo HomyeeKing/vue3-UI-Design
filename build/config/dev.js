@@ -4,8 +4,8 @@ module.exports = {
 	// 普通对象 不是webpack devServer
 	devServer: {
 		host: 'localhost',
-		prot: 3011,
-		autoOpenBrowser: true,
+		port: 3011,
+		autoOpenBrowser: false,
 		overlay: true,
 		notifyOnErrors: true,
 		poll: false //使用文件系统(file system)获取文件改动的通知devServer.watchOptions

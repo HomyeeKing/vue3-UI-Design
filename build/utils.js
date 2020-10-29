@@ -13,7 +13,7 @@ exports.createNotifierCallback = () => {
 		if (severity !== 'error') {
 			return;
 		}
-		const error = errors[0];
+        const error = errors[0];
 		const filename = error.file && error.file.split('!').pop();
 
 		notifier.notify({
@@ -57,7 +57,7 @@ exports.cssLoaders = function(options) {
 		if (options.extract) {
 			loaders.splice(0, 0, MiniCssExtractPlugin.loader);
 		} else {
-			loader.splice(0, 0, 'vue-style-loader');
+			loaders.splice(0, 0, 'vue-style-loader');
 		}
 		return loaders;
 	}

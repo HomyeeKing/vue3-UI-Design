@@ -13,7 +13,7 @@ function assetsPath(_path) {
 
 const baseWebpackConfig = {
 	resolve: {
-        // 能够解析的扩展名，这样引用文件的时候就可以不加扩展名了
+		// 能够解析的扩展名，这样引用文件的时候就可以不加扩展名了
 		extensions: ['.js', '.vue', '.json'],
 		alias: config.alias
 	},
@@ -59,18 +59,14 @@ const baseWebpackConfig = {
 				}
 			},
 			{
-				test: /\.sass$/,
+				test: /\.s[ac]ss$/,
 				use: [
 					'vue-style-loader',
 					'css-loader',
 					{
 						loader: 'sass-loader',
 						options: {
-							indentedSyntax: true,
-							// sass-loader version >= 8
-							sassOptions: {
-								indentedSyntax: true
-							}
+							indentedSyntax: true
 						}
 					}
 				]
@@ -82,15 +78,7 @@ const baseWebpackConfig = {
 		new webpack.DefinePlugin({
 			'process.env': config.env
 		})
-	],
-	node: {
-		setImmediate: false,
-		dgram: 'empty',
-		fs: 'empty',
-		net: 'empty',
-		tls: 'empty',
-		child_process: 'empty'
-	}
+	]
 };
 
 module.exports = baseWebpackConfig;

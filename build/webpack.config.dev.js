@@ -1,4 +1,4 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const commonConfig = require('./webpack.config.base');
@@ -11,12 +11,13 @@ const utils = require('./utils');
 const configuration = merge(commonConfig, {
 	mode: config.mode,
 	devtool: 'inline-source-map',
+	target: 'web',
 	entry: {
-		app: utils.resolve('example/main'),
+		app: utils.resolve('examples/main'),
 		vendors: ['vue', 'vue-router']
 	},
 	output: {
-		path: utils.resolve('example/dist'),
+		path: utils.resolve('examples/dist'),
 		publicPath: config.assetsPublicPath,
 		filename: '[name].js',
 		// 非入口chunk文件名
@@ -48,7 +49,7 @@ const configuration = merge(commonConfig, {
 });
 
 module.exports = new Promise((resolve, reject) => {
-	portfinder.basePort = process.env.PORT || config.devServer.port;
+	portfinder.basePort = config.devServer.port;
 	portfinder.getPort((err, port) => {
 		if (err) reject(err);
 		else {
