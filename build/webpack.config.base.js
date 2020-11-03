@@ -1,6 +1,6 @@
 const path = require('path');
-const { VueLoaderPlugin } = require('vue-loader');
-
+const { VueLoaderPlugin } = require('vue-loader-v16');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const config = require('./config');
 const utils = require('./utils');
 
@@ -50,7 +50,8 @@ const baseWebpackConfig = {
 				loader: 'ts-loader',
 				exclude: /node_modules/,
 				options: {
-					appendTsSuffixTo: [/\.vue$/]
+					appendTsSuffixTo: [/\.vue$/],
+					transpileOnly: true
 				}
 			},
 			{
@@ -101,6 +102,7 @@ const baseWebpackConfig = {
 	},
 	plugins: [
 		new VueLoaderPlugin(),
+		new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
 		new MiniCssExtractPlugin({
 			filename: '[name].css'
 		})

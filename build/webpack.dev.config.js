@@ -10,9 +10,9 @@ const utils = require('./utils');
 
 const configuration = merge(commonConfig, {
 	mode: 'development',
-	devtool: 'inline-source-map',
+	devtool: 'eval-cheap-module-source-map',
 	entry: {
-		app: utils.resolve('./src/main.ts'),
+		app: utils.resolve('./examples/main.ts'),
 		vendors: ['vue', 'vue-router']
 	},
 	output: {
