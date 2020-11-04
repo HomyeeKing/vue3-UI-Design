@@ -35,23 +35,19 @@ const baseWebpackConfig = {
 			{
 				test: /\.js$/,
 				loader: 'babel-loader',
-				include: [
-					utils.resolve('src'),
-					utils.resolve('docs'),
-					utils.resolve('node_modules/webpack-dev-server/client')
-				]
+				include: [utils.resolve('examples')],
+				exclude: /node_modules/
 			},
 			{
 				test: /\.css$/,
-				use: ['vue-style-loader', 'css-loader']
+				use: ['vue-style-loader', 'css-loader', MiniCssExtractPlugin.loader]
 			},
 			{
 				test: /\.tsx?$/,
 				loader: 'ts-loader',
 				exclude: /node_modules/,
 				options: {
-					appendTsSuffixTo: [/\.vue$/],
-					transpileOnly: true
+					appendTsSuffixTo: [/\.vue$/]
 				}
 			},
 			{
@@ -63,7 +59,6 @@ const baseWebpackConfig = {
 			{
 				test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
 				loader: 'url-loader',
-				exclude: [utils.resolve('src/components/icon/src/svg')],
 				options: {
 					limit: 10000,
 					name: assetsPath('img/[name].[hash:7].[ext]')
@@ -87,16 +82,7 @@ const baseWebpackConfig = {
 			},
 			{
 				test: /\.s[ac]ss$/,
-				use: [
-					'vue-style-loader',
-					'css-loader',
-					{
-						loader: 'sass-loader',
-						options: {
-							indentedSyntax: true
-						}
-					}
-				]
+				use: ['vue-style-loader', 'css-loader', 'sass-loader']
 			}
 		]
 	},

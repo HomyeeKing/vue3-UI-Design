@@ -27,7 +27,7 @@
 	"include": [
 		"src/**/*.ts",
 		"src/**/*.tsx",
-		"src/**/*.vue", "examples/main.ts",
+		"src/**/*.vue", "examples/main.ts", "types/shims-vuex.d.ts", "types/shims-vue.d.ts",
 	],
 	"exclude": [
 		"node_modules"

@@ -47,14 +47,12 @@ export default defineComponent({
 		 */
 		const onScroll = () => {
 			const scrollTop = el!.scrollTop;
-			console.log(el!.scrollTop);
 
 			visible.value = scrollTop >= +visibilityHeight;
 		};
 		const throttleScrollHandler = throttle(onScroll, 300);
 		onMounted(() => {
 			init();
-			console.log(container);
 			container.addEventListener('scroll', onScroll);
 		});
 		onUnmounted(() => {
@@ -77,7 +75,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .fade-enter-active,
 .fade-leave-active {
 	transition: opacity 0.5s;

@@ -10,6 +10,7 @@ const utils = require('./utils');
 
 const configuration = merge(commonConfig, {
 	mode: 'development',
+	target: 'web',
 	devtool: 'eval-cheap-module-source-map',
 	entry: {
 		app: utils.resolve('./examples/main.ts'),
@@ -46,6 +47,7 @@ const configuration = merge(commonConfig, {
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
+			title: 'Ho-UI',
 			filename: 'index.html',
 			template: utils.resolve('examples/index.html'),
 			inject: true

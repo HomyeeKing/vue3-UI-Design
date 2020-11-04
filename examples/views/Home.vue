@@ -1,7 +1,7 @@
 <template>
 	<div id="home">
 		<header>
-			Header
+			Heaarasdas
 		</header>
 		<main class="main_content"></main>
 		<footer></footer>
@@ -14,19 +14,15 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Backtop from '../../packages/backtop/src/index.vue';
+import Backtop from 'packages/backtop/src/index.vue';
 
 export default defineComponent({
 	name: 'Home',
-	components: { Backtop },
-	setup() {
-		const str = '[object RawType]';
-		console.log(str.slice(8, -1));
-	}
+	components: { Backtop }
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #home {
 	width: 100vw;
 	height: 100vh;
