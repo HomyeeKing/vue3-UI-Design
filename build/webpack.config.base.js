@@ -3,8 +3,9 @@ const { VueLoaderPlugin } = require('vue-loader-v16');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const config = require('./config');
 const utils = require('./utils');
-
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const configuration = require('./webpack.dev.config');
 function assetsPath(_path) {
 	const assetsSubDirectory =
 		process.env.NODE_ENV === 'production'
@@ -91,6 +92,10 @@ const baseWebpackConfig = {
 		new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
 		new MiniCssExtractPlugin({
 			filename: '[name].css'
+		}),
+		new webpack.DefinePlugin({
+            NODE_ENV:configuration.mode,
+			__VUE_OPTIONS_API__: true
 		})
 	]
 };

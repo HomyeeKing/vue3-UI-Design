@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const commonConfig = require('./webpack.config.base');
 const config = require('./config');
-const portfinder = require('portfinder');
+// const portfinder = require('portfinder');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const utils = require('./utils');
 
@@ -51,33 +51,37 @@ const configuration = merge(commonConfig, {
 			filename: 'index.html',
 			template: utils.resolve('examples/index.html'),
 			inject: true
+		}),
+		new FriendlyErrorsPlugin({
+			compilationSuccessInfo: {
+				messages: [
+					`Your application is runnign here: http://localhost:${config.dev.port}`
+				]
+			},
+			onErrors: config.dev.notifyOnErrors
+				? utils.createNotifierCallback()
+				: undefined
 		})
-	]
+	],
+	stats: {
+		preset: 'errors-warnings',
+		colors: true
+	}
 });
 
-module.exports = new Promise((resolve, reject) => {
-	portfinder.basePort = config.dev.port;
-	portfinder.getPort((err, port) => {
-		if (err) reject(err);
-		else {
-			// public the new Port, necessary for e2e test
-			process.env.PORT = port;
-			configuration.devServer.port = port;
+module.exports = configuration;
+// module.exports = new Promise((resolve, reject) => {
+// 	portfinder.basePort = config.dev.port;
+// 	portfinder.getPort((err, port) => {
+// 		if (err) reject(err);
+// 		else {
+// 			// public the new Port, necessary for e2e test
+// 			process.env.PORT = port;
+// 			configuration.devServer.port = port;
 
-			configuration.plugins.push(
-				new FriendlyErrorsPlugin({
-					compilationSuccessInfo: {
-						messages: [
-							`Your application is runnign here: http://${configuration.devServer.host}:${port}`
-						]
-					},
-					onErrors: config.dev.notifyOnErrors
-						? utils.createNotifierCallback()
-						: undefined
-				})
-			);
+// 			configuration.plugins.push();
 
-			resolve(configuration);
-		}
-	});
-});
+// 			resolve(configuration);
+// 		}
+// 	});
+// });
