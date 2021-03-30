@@ -1,4 +1,4 @@
-# vue3-ui-design/
+# vue3-ui-design
 
 ## Project setup
 
